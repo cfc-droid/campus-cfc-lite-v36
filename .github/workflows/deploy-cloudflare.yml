@@ -28,11 +28,10 @@ jobs:
         working-directory: frontend
         run: npm install --force
 
-      - name: Rebuild and export static site
+      - name: Rebuild static site
         working-directory: frontend
         run: |
-          npm run build
-          npm run export
+          npm run build   # <-- solo build; con output: 'export' esto genera /out
 
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/pages-action@v1
