@@ -1,6 +1,17 @@
+campus-cfc-lite-v36/frontend/src/pages/exams
+/index.jsx
+cfc-droid
+cfc-droid
+Clean repo without node_modules (final fix)
+c49db80
+ · 
+44 minutes ago
+
+Code
+
+Blame
 import Head from 'next/head'
 import Link from 'next/link'
-import '../../styles/globals.css'
 
 const modules = Array.from({length: 20}, (_,i) => i+1);
 
