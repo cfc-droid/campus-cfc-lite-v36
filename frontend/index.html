@@ -8,38 +8,37 @@
   <title>Campus CFC Trading LITE</title>
 
   <!-- Precarga de fuentes -->
-  <link rel="preload" href="/frontend/fonts/Poppins-Regular.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/frontend/fonts/Poppins-Bold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="./fonts/Poppins-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="./fonts/Poppins-Bold.woff2" as="font" type="font/woff2" crossorigin>
 
   <!-- Estilos globales -->
-  <link rel="stylesheet" href="/frontend/css/variables.css" />
-  <link rel="stylesheet" href="/frontend/css/global.css" />
-  <link rel="stylesheet" href="/frontend/css/premium.min.css" />
-  <link rel="stylesheet" href="/frontend/css/loader.css" />
+  <link rel="stylesheet" href="./css/variables.css">
+  <link rel="stylesheet" href="./css/global.css">
+  <link rel="stylesheet" href="./css/premium.min.css">
+  <link rel="stylesheet" href="./css/loader.css">
 
   <!-- Scripts del loader inicial -->
-  <script src="/frontend/js/loader.js" defer></script>
-  <script src="/frontend/js/progress.js" defer></script>
+  <script src="./js/loader.js" defer></script>
+  <script src="./js/progress.js" defer></script>
 </head>
 <body>
-
   <!-- LOADER INICIAL CFC -->
   <div id="loader">
     <div class="logo">
       <svg width="180" height="180" viewBox="0 0 100 100">
-        <circle cx="50" cy="50" r="48" stroke="#ffd647" stroke-width="3" fill="none"/>
-        <text x="50%" y="54%" text-anchor="middle" fill="#ffd647" font-size="22" font-family="Poppins, sans-serif">CFC</text>
+        <circle cx="50%" cy="50%" r="48" stroke="#ffcd47" stroke-width="3" fill="none"/>
+        <text x="50%" y="54%" text-anchor="middle" fill="#ffcd47" font-size="22" font-family="Poppins, sans-serif">CFC</text>
       </svg>
     </div>
     <div id="progress-container">
       <div id="progress"></div>
+      <p>Cargando Campus...</p>
     </div>
-    <p>Cargando Campus...</p>
   </div>
 
   <!-- HEADER -->
   <header class="navbar">
-    <div class="logo">🌐 Campus CFC Trading</div>
+    <div class="logo">⚡ Campus CFC Trading</div>
     <nav>
       <ul>
         <li><a href="#inicio">Inicio</a></li>
@@ -54,7 +53,7 @@
     <h1>Bienvenido al Campus CFC Trading</h1>
     <p>Formación psicológica y técnica del trader moderno</p>
     <div class="botones-hero">
-      <a href="/frontend/modules/index.html" class="btn-principal">Comenzar Módulos</a>
+      <a href="./modules/index.html" class="btn-principal">Comenzar Módulos</a>
       <a href="#info" class="btn-secundario">Ver Información</a>
     </div>
   </section>
@@ -63,9 +62,9 @@
   <section id="modulos" class="modules">
     <h2>Módulos Disponibles</h2>
     <div class="grid-modulos">
-      <a href="/frontend/modules/1/index.html" class="modulo">Módulo 1</a>
-      <a href="/frontend/modules/2/index.html" class="modulo">Módulo 2</a>
-      <a href="/frontend/modules/3/index.html" class="modulo">Módulo 3</a>
+      <a href="./modules/1/index.html" class="modulo">Módulo 1</a>
+      <a href="./modules/2/index.html" class="modulo">Módulo 2</a>
+      <a href="./modules/3/index.html" class="modulo">Módulo 3</a>
     </div>
     <p>... hasta 20 módulos 📘</p>
   </section>
@@ -76,13 +75,13 @@
   </footer>
 
   <!-- SCRIPTS GLOBALES -->
-  <script src="/frontend/js/menu.js" defer></script>
-  <script src="/frontend/js/theme.js" defer></script>
+  <script src="./js/menu.js" defer></script>
+  <script src="./js/theme.js" defer></script>
 
   <!-- Registro del Service Worker para caché offline -->
   <script>
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/frontend/scripts/cache.js')
+      navigator.serviceWorker.register('./scripts/cache.js')
         .then(() => console.log('✅ CFC cache activo'))
         .catch(err => console.error('❌ Error al registrar cache:', err));
     }
