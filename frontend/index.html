@@ -3,21 +3,42 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Campus CFC Trading — Formación psicológica y técnica del trader moderno">
-  <meta name="keywords" content="trading, psicología, forex, campus CFC, formación">
+  <meta name="description" content="Campus CFC Trading – Formación psicológica y técnica del trader moderno" />
+  <meta name="keywords" content="trading, psicología, forex, campus CFC, formación" />
   <title>Campus CFC Trading LITE</title>
 
-  <!-- CSS global -->
-  <link rel="stylesheet" href="/frontend/css/premium.css">
-  <link rel="stylesheet" href="/frontend/css/variables.css">
+  <!-- Estilos globales -->
+  <link rel="stylesheet" href="/frontend/css/variables.css" />
+  <link rel="stylesheet" href="/frontend/css/glass.css" />
+  <link rel="stylesheet" href="/frontend/css/premium.css" />
+  <link rel="stylesheet" href="/frontend/css/loader.css" />
+
+  <!-- Scripts del loader -->
+  <script src="/frontend/js/loader.js" defer></script>
+  <script src="/frontend/js/progress.js" defer></script>
 </head>
 <body>
-  <!-- Loader inicial (se activará en pasos posteriores) -->
-  <div id="loader" style="display:none;">Cargando Campus...</div>
+  <!-- ===================== -->
+  <!-- LOADER INICIAL CFC -->
+  <!-- ===================== -->
+  <div id="loader">
+    <div class="logo">
+      <svg width="100" height="100" viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="48" stroke="#d4af37" stroke-width="3" fill="none" />
+        <text x="50%" y="54%" text-anchor="middle" fill="#d4af37" font-size="22" font-family="Poppins, sans-serif">CFC</text>
+      </svg>
+    </div>
+    <div id="progress-container">
+      <div id="progress"></div>
+    </div>
+    <p>Cargando Campus...</p>
+  </div>
 
+  <!-- ===================== -->
   <!-- HEADER -->
+  <!-- ===================== -->
   <header class="navbar">
-    <div class="logo">💎 Campus CFC Trading</div>
+    <div class="logo">🌟 Campus CFC Trading</div>
     <nav>
       <ul>
         <li><a href="#inicio">Inicio</a></li>
@@ -27,7 +48,9 @@
     </nav>
   </header>
 
+  <!-- ===================== -->
   <!-- HERO -->
+  <!-- ===================== -->
   <section id="inicio" class="hero">
     <h1>Bienvenido al Campus CFC Trading</h1>
     <p>Formación psicológica y técnica del trader moderno</p>
@@ -37,24 +60,29 @@
     </div>
   </section>
 
+  <!-- ===================== -->
   <!-- SECCIÓN MÓDULOS -->
+  <!-- ===================== -->
   <section id="modulos" class="modulos">
     <h2>Módulos Disponibles</h2>
     <div class="grid-modulos">
-      <!-- Estos enlaces se actualizarán automáticamente -->
       <a href="/frontend/modules/1/index.html" class="modulo">Módulo 1</a>
       <a href="/frontend/modules/2/index.html" class="modulo">Módulo 2</a>
       <a href="/frontend/modules/3/index.html" class="modulo">Módulo 3</a>
-      <!-- … hasta 20 módulos -->
+      <!-- hasta 20 módulos -->
     </div>
   </section>
 
+  <!-- ===================== -->
   <!-- FOOTER -->
+  <!-- ===================== -->
   <footer class="footer">
-    <p>© 2025 Campus CFC Trading — Todos los derechos reservados</p>
+    <p>© 2025 Campus CFC Trading – Todos los derechos reservados.</p>
   </footer>
 
-  <!-- Scripts base -->
+  <!-- ===================== -->
+  <!-- SCRIPTS GLOBALES -->
+  <!-- ===================== -->
   <script src="/frontend/js/menu.js" defer></script>
   <script src="/frontend/js/theme.js" defer></script>
 </body>
