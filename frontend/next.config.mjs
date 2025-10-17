@@ -1,11 +1,15 @@
-// ✅ Next.js config — static export compatible con Next.js 14+
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  output: 'export',
-  reactStrictMode: true,
-  images: {
-    unoptimized: true,
+{
+  "name": "campus-cfc-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
   },
-};
-
-export default nextConfig;
+  "dependencies": {
+    "next": "14.2.4",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  }
+}
