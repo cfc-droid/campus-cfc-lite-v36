@@ -1,36 +1,43 @@
-name: Deploy to Cloudflare Pages (Clean v3.6)
+name: Deploy to Cloudflare Pages (Full Clean)
 
 on:
   push:
-    branches: ["main"]
+    branches:
+      - main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Delete all old caches
+        run: |
+          rm -rf frontend/node_modules
+          rm -rf frontend/.next
+          rm -rf frontend/out
+          rm -rf ~/.npm
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      - name: Install dependencies
-        run: |
-          cd frontend
-          npm ci
+      - name: Fresh install dependencies
+        working-directory: frontend
+        run: npm install --force
 
-      - name: Build project
+      - name: Rebuild and export static site
+        working-directory: frontend
         run: |
-          cd frontend
           npm run build
+          npm run export
 
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/pages-action@v1
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: campus-cfc-lite
+          projectName: campus-cfc-lite-v36
           directory: frontend/out
