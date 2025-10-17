@@ -1,0 +1,30 @@
+name: Test Supabase Connection
+
+on:
+  workflow_dispatch:  # Permite ejecución manual
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: |
+          cd backend
+          npm install @supabase/supabase-js dotenv
+
+      - name: Test Supabase connection
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+        run: |
+          cd backend
+          node test-connection.js
