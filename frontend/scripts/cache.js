@@ -1,41 +1,42 @@
-// ============================
-// CACHE.JS - MODO OFFLINE INTELIGENTE (CAMPUS CFC TRADING)
-// ============================
+// =============================================
+// CACHE.JS — MODO OFFLINE INTELIGENTE (CAMPUS CFC TRADING)
+// =============================================
 
-self.addEventListener('install', e => {
-  console.log('📦 Instalando Service Worker del Campus CFC...');
+const CACHE_NAME = 'cfc-cache-v1';
+const RECURSOS_ESENCIALES = [
+  '/',
+  '/frontend/index.html',
+  '/frontend/css/premium.css',
+  '/frontend/js/exam.js'
+];
+
+// INSTALACIÓN DEL SERVICE WORKER
+self.addEventListener('install', (e) => {
+  console.log('⚙️ Instalando Service Worker del Campus CFC...');
   e.waitUntil(
-    caches.open('cfc-cache-v1').then(cache => {
-      return cache.addAll([
-        '/', 
-        '/frontend/index.html',
-        '/frontend/css/premium.css',
-        '/frontend/css/glass.css',
-        '/frontend/js/menu.js',
-        '/frontend/js/theme.js',
-        '/frontend/js/loader.js',
-        '/frontend/js/progress.js'
-      ]);
+    caches.open(CACHE_NAME).then((cache) => {
+      console.log('📦 Guardando recursos esenciales en cache...');
+      return cache.addAll(RECURSOS_ESENCIALES);
     })
   );
 });
 
-// Activación del cache
-self.addEventListener('activate', e => {
-  console.log('✅ CFC cache activo y listo');
+// ACTIVACIÓN DEL SERVICE WORKER
+self.addEventListener('activate', (e) => {
+  console.log('🚀 CFC cache activo y listo');
   e.waitUntil(
-    caches.keys().then(keys =>
-      Promise.all(
-        keys.filter(k => k !== 'cfc-cache-v1').map(k => caches.delete(k))
-      )
-    )
+    caches.keys().then((keys) => {
+      return Promise.all(
+        keys.filter((key) => key !== CACHE_NAME).map((key) => caches.delete(key))
+      );
+    })
   );
 });
 
-// Intercepción de peticiones (modo offline)
-self.addEventListener('fetch', e => {
+// INTERCEPCIÓN DE PETICIONES (MODO OFFLINE)
+self.addEventListener('fetch', (e) => {
   e.respondWith(
-    caches.match(e.request).then(response => {
+    caches.match(e.request).then((response) => {
       return response || fetch(e.request);
     })
   );
