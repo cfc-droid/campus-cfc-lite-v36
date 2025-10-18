@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin — Historial de exámenes</title>
+  <link rel="stylesheet" href="/frontend/css/premium.css">
+  <style>
+    body { max-width: 980px; margin: 40px auto; padding: 0 16px; }
+    h1 { margin-bottom: 4px; }
+    .muted { color:#aaa; margin:0 0 18px 0; }
+    table { width:100%; border-collapse: collapse; margin-top: 16px; }
+    th, td { border: 1px solid #2b2b2b; padding: 10px; text-align: left; }
+    th { background: #101010; }
+    tr:nth-child(even){ background:#0e0e0e;}
+    .btns { display:flex; gap:10px; margin: 18px 0; flex-wrap: wrap;}
+    button {
+      background: linear-gradient(90deg, gold, orange);
+      color: #111; font-weight: 700; border: 0; border-radius: 8px;
+      padding: 10px 14px; cursor: pointer; transition: transform .15s ease;
+    }
+    button:hover { transform: translateY(-1px); }
+    .kpi { display:flex; gap:16px; flex-wrap: wrap; margin: 16px 0;}
+    .kpi span {
+      background:#0d0d0d; padding:10px 12px; border-radius:8px; border:1px solid #222;
+    }
+    .note { font-size:.9rem; color:#aaa; margin-top:10px;}
+  </style>
+</head>
+<body>
+  <h1>Panel Admin — Historial de Exámenes</h1>
+  <p class="muted">Vista local (sin backend). Lee y exporta resultados guardados en <code>localStorage</code>.</p>
+
+  <div class="btns">
+    <button id="btnRefresh">🔄 Actualizar historial</button>
+    <button id="btnExport">⬇️ Exportar CSV</button>
+    <button id="btnClear">🗑️ Limpiar historial</button>
+  </div>
+
+  <div class="kpi">
+    <span id="kpiProm">Promedio general: —</span>
+    <span id="kpiIntentos">Intentos totales: —</span>
+    <span id="kpiAprob">Módulos aprobados: — / 20</span>
+  </div>
+
+  <table id="tbl">
+    <thead>
+      <tr>
+        <th>Módulo</th>
+        <th>Puntaje</th>
+        <th>Intentos</th>
+        <th>Fecha</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <p class="note">Tip: este panel usa la clave <code>cfc_history</code> (array JSON) y también lee <code>mod{N}_score</code> / <code>mod{N}_attempts</code>.</p>
+
+  <script src="/frontend/js/admin.js" defer></script>
+</body>
+</html>
