@@ -13,11 +13,27 @@
     />
     <title>Campus CFC Trading LITE</title>
 
-    <!-- Precarga de fuentes -->
-    <link rel="preload" href="fonts/Poppins-Regular.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="fonts/Poppins-Bold.woff2" as="font" type="font/woff2" crossorigin />
+    <!-- ================================
+         🔹 PRECARGA DE FUENTES
+    ================================= -->
+    <link
+      rel="preload"
+      href="fonts/Poppins-Regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="fonts/Poppins-Bold.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
 
-    <!-- Estilos globales -->
+    <!-- ================================
+         🔹 ESTILOS GLOBALES
+    ================================= -->
     <link rel="stylesheet" href="css/variables.css" />
     <link rel="stylesheet" href="css/global.css" />
     <link rel="stylesheet" href="css/premium.min.css" />
@@ -25,27 +41,23 @@
   </head>
 
   <body>
-    <!-- ============================= -->
-    <!-- LOADER INICIAL CFC TRADING -->
-    <!-- ============================= -->
+    <!-- ================================
+         🔹 LOADER INICIAL
+    ================================= -->
     <div id="loader">
       <svg class="logo" width="90" height="90" viewBox="0 0 100 100">
-        <circle cx="50" cy="50" r="48" stroke="#f4d47f" stroke-width="3" fill="none" />
-        <text x="50%" y="54%" text-anchor="middle" fill="#f4d47f" font-size="22" font-family="Poppins, sans-serif">
-          CFC
-        </text>
+        <circle cx="50" cy="50" r="45" stroke="#f4d47f" stroke-width="3" fill="none" />
+        <text x="50%" y="54%" text-anchor="middle" fill="#f4d47f" font-size="22" font-family="Poppins, sans-serif">CFC</text>
       </svg>
-
       <div id="progress-container">
         <div id="progress"></div>
       </div>
-
       <p>Cargando Campus...</p>
     </div>
 
-    <!-- ============================= -->
-    <!-- HEADER -->
-    <!-- ============================= -->
+    <!-- ================================
+         🔹 HEADER
+    ================================= -->
     <header class="navbar">
       <div class="logo">Campus CFC Trading</div>
       <nav>
@@ -57,60 +69,24 @@
       </nav>
     </header>
 
-    <!-- ============================= -->
-    <!-- HERO -->
-    <!-- ============================= -->
+    <!-- ================================
+         🔹 HERO PRINCIPAL
+    ================================= -->
     <section id="inicio" class="hero">
       <h1>Bienvenido al Campus CFC Trading</h1>
       <p>Formación psicológica y técnica del trader moderno</p>
       <div class="botones-hero">
-        <a href="modules/index.html" class="btn-principal">Comenzar Módulos</a>
+        <a href="modules/1/index.html" class="btn-principal">Comenzar Módulos</a>
         <a href="#info" class="btn-secundario">Ver Información</a>
       </div>
     </section>
 
-    <!-- ============================= -->
-    <!-- SECCIÓN MÓDULOS -->
-    <!-- ============================= -->
+    <!-- ================================
+         🔹 SECCIÓN MÓDULOS
+    ================================= -->
     <section id="modulos" class="modules">
       <h2>Módulos Disponibles</h2>
       <div class="grid-modulos">
         <a href="modules/1/index.html" class="modulo">Módulo 1</a>
         <a href="modules/2/index.html" class="modulo">Módulo 2</a>
-        <a href="modules/3/index.html" class="modulo">Módulo 3</a>
-      </div>
-      <p>... hasta 20 módulos 📘</p>
-    </section>
-
-    <!-- ============================= -->
-    <!-- FOOTER -->
-    <!-- ============================= -->
-    <footer class="footer">
-      <p>© 2025 Campus CFC Trading — Todos los derechos reservados.</p>
-    </footer>
-
-    <!-- ============================= -->
-    <!-- SCRIPTS GLOBALES -->
-    <!-- ============================= -->
-    <script src="js/menu.js" defer></script>
-    <script src="js/theme.js" defer></script>
-
-    <!-- ============================= -->
-    <!-- SCRIPTS DEL LOADER -->
-    <!-- ============================= -->
-    <script src="js/progress.js" defer></script>
-    <script src="js/loader.js" defer></script>
-
-    <!-- ============================= -->
-    <!-- REGISTRO DEL SERVICE WORKER -->
-    <!-- ============================= -->
-    <script>
-      if ("serviceWorker" in navigator) {
-        navigator.serviceWorker
-          .register("scripts/cache.js")
-          .then(() => console.log("✅ CFC cache activo"))
-          .catch((err) => console.error("❌ Error al registrar cache:", err));
-      }
-    </script>
-  </body>
-</html>
+        <a href="modules/3/index.html" class
