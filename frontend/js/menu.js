@@ -1,22 +1,26 @@
-// ============================
-// MENU.JS - NAVEGACIÓN ENTRE MÓDULOS
-// ============================
+// ======================================
+// MENU.JS – NAVEGACIÓN ENTRE MÓDULOS CFC
+// ======================================
 
 document.addEventListener("DOMContentLoaded", () => {
-  const enlaces = document.querySelectorAll("a[data-module]");
-  const titulo = document.querySelector("h1");
-  const main = document.querySelector("main");
+  const enlaces = document.querySelectorAll("[data-module]");
+  const main = document.querySelector("main") || document.body;
 
-  enlaces.forEach(enlace => {
-    enlace.addEventListener("click", e => {
+  enlaces.forEach((enlace) => {
+    enlace.addEventListener("click", (e) => {
       e.preventDefault();
       const modulo = enlace.getAttribute("data-module");
-      main.innerHTML = `<p>Cargando módulo ${modulo}...</p>`;
+
+      // Animación de salida antes de cambiar módulo
+      main.style.transition = "opacity 0.3s ease";
+      main.style.opacity = "0.3";
+      main.innerHTML = `<p style="color:var(--gold);text-align:center;">Cargando módulo ${modulo}...</p>`;
+
       setTimeout(() => {
         window.location.href = `/frontend/modules/${modulo}/index.html`;
-      }, 800);
+      }, 600);
     });
   });
 
-  console.log("📘 Navegación entre módulos activa");
+  console.log("✅ Navegación entre módulos activa");
 });
