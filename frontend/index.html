@@ -1,92 +1,91 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Campus CFC Trading – Formación psicológica y técnica del trader moderno"
-    />
-    <meta
-      name="keywords"
-      content="trading, psicología, forex, campus CFC, formación"
-    />
-    <title>Campus CFC Trading LITE</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Campus CFC Trading — Formación psicológica y técnica del trader moderno" />
+  <meta name="keywords" content="trading, psicología, forex, campus CFC, formación" />
+  <title>Campus CFC Trading LITE</title>
 
-    <!-- ================================
-         🔹 PRECARGA DE FUENTES
-    ================================= -->
-    <link
-      rel="preload"
-      href="fonts/Poppins-Regular.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
-    <link
-      rel="preload"
-      href="fonts/Poppins-Bold.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
+  <!-- ============================== -->
+  <!-- PRECARGA DE FUENTES -->
+  <!-- ============================== -->
+  <link rel="preload" href="fonts/Poppins-Regular.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/Poppins-Bold.woff2" as="font" type="font/woff2" crossorigin />
 
-    <!-- ================================
-         🔹 ESTILOS GLOBALES
-    ================================= -->
-    <link rel="stylesheet" href="css/variables.css" />
-    <link rel="stylesheet" href="css/global.css" />
-    <link rel="stylesheet" href="css/premium.min.css" />
-    <link rel="stylesheet" href="css/loader.css" />
-  </head>
+  <!-- ============================== -->
+  <!-- ESTILOS GLOBALES -->
+  <!-- ============================== -->
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/premium.min.css" />
+  <link rel="stylesheet" href="css/loader.css" />
+</head>
 
-  <body>
-    <!-- ================================
-         🔹 LOADER INICIAL
-    ================================= -->
-    <div id="loader">
-      <svg class="logo" width="90" height="90" viewBox="0 0 100 100">
-        <circle cx="50" cy="50" r="45" stroke="#f4d47f" stroke-width="3" fill="none" />
-        <text x="50%" y="54%" text-anchor="middle" fill="#f4d47f" font-size="22" font-family="Poppins, sans-serif">CFC</text>
-      </svg>
-      <div id="progress-container">
-        <div id="progress"></div>
-      </div>
-      <p>Cargando Campus...</p>
+<body>
+  <!-- ============================== -->
+  <!-- LOADER INICIAL -->
+  <!-- ============================== -->
+  <div id="loader">
+    <div class="spinner"></div>
+    <p id="loader-frase"></p>
+  </div>
+
+  <!-- ============================== -->
+  <!-- HEADER -->
+  <!-- ============================== -->
+  <header class="navbar">
+    <div class="logo">Campus CFC Trading</div>
+    <nav>
+      <ul>
+        <li><a href="#inicio"><b>Inicio</b></a></li>
+        <li><a href="#modulos"><b>Módulos</b></a></li>
+        <li><a href="#contacto"><b>Contacto</b></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ============================== -->
+  <!-- BANNER DE BIENVENIDA DINÁMICO -->
+  <!-- ============================== -->
+  <div id="banner-saludo"></div>
+
+  <!-- ============================== -->
+  <!-- HERO PRINCIPAL -->
+  <!-- ============================== -->
+  <section id="inicio" class="hero">
+    <h1>Bienvenido al Campus CFC Trading</h1>
+    <p>Formación psicológica y técnica del trader moderno</p>
+    <div class="botones-hero">
+      <a href="modules/1/index.html" class="btn-principal">Comenzar Módulos</a>
+      <a href="#info" class="btn-secundario">Ver Información</a>
     </div>
+  </section>
 
-    <!-- ================================
-         🔹 HEADER
-    ================================= -->
-    <header class="navbar">
-      <div class="logo">Campus CFC Trading</div>
-      <nav>
-        <ul>
-          <li><a href="#inicio">Inicio</a></li>
-          <li><a href="#modulos">Módulos</a></li>
-          <li><a href="#contacto">Contacto</a></li>
-        </ul>
-      </nav>
-    </header>
+  <!-- ============================== -->
+  <!-- SECCIÓN MÓDULOS -->
+  <!-- ============================== -->
+  <section id="modulos" class="modules">
+    <h2>Módulos Disponibles</h2>
+    <div class="grid-modulos">
+      <a href="modules/1/index.html" class="modulo">Módulo 1</a>
+      <a href="modules/2/index.html" class="modulo">Módulo 2</a>
+      <a href="modules/3/index.html" class="modulo">Módulo 3</a>
+    </div>
+  </section>
 
-    <!-- ================================
-         🔹 HERO PRINCIPAL
-    ================================= -->
-    <section id="inicio" class="hero">
-      <h1>Bienvenido al Campus CFC Trading</h1>
-      <p>Formación psicológica y técnica del trader moderno</p>
-      <div class="botones-hero">
-        <a href="modules/1/index.html" class="btn-principal">Comenzar Módulos</a>
-        <a href="#info" class="btn-secundario">Ver Información</a>
-      </div>
-    </section>
+  <!-- ============================== -->
+  <!-- FOOTER -->
+  <!-- ============================== -->
+  <footer>
+    <p>© 2025 Campus CFC Trading. Todos los derechos reservados.</p>
+  </footer>
 
-    <!-- ================================
-         🔹 SECCIÓN MÓDULOS
-    ================================= -->
-    <section id="modulos" class="modules">
-      <h2>Módulos Disponibles</h2>
-      <div class="grid-modulos">
-        <a href="modules/1/index.html" class="modulo">Módulo 1</a>
-        <a href="modules/2/index.html" class="modulo">Módulo 2</a>
-        <a href="modules/3/index.html" class
+  <!-- ============================== -->
+  <!-- SCRIPTS -->
+  <!-- ============================== -->
+  <script src="scripts/loader.js" defer></script>
+  <script src="scripts/cache.js" defer></script>
+  <script src="scripts/welcome.js" defer></script>
+</body>
+</html>
