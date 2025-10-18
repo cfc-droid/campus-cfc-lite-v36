@@ -6,47 +6,100 @@
   <title>Campus CFC LITE — Inicio</title>
 
   <!-- CSS principal -->
-  <link rel="stylesheet" href="css/variables.css">
-  <link rel="stylesheet" href="css/premium.min.css">
-  <link rel="stylesheet" href="css/exam-extra.css">
+  <link rel="stylesheet" href="/css/variables.css" />
+  <link rel="stylesheet" href="/css/premium.min.css" />
+  <link rel="stylesheet" href="/css/exam-extra.css" />
 
   <style>
-    body{background:#0b0b0b;color:#eaeaea;font-family:system-ui,-apple-system,Segoe UI,Roboto,Poppins,sans-serif;min-height:100dvh;margin:0;display:grid;place-items:center}
-    .card{width:min(920px,94%);background:linear-gradient(180deg,#111,#0b0b0b);border:1px solid #222;border-radius:18px;padding:36px 28px;box-shadow:0 10px 40px rgba(0,0,0,.35)}
-    h1{font-size:34px;margin:0 0 10px}
-    p.lead{opacity:.9;margin:0 0 24px}
-    .hint{opacity:.7;font-size:.92rem;margin-top:8px}
-    .actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:18px}
-    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:12px;border:1px solid #333;background:#161616;color:#f5f5f5;text-decoration:none;cursor:pointer;transition:.2s transform,.2s box-shadow}
-    .btn:hover{transform:translateY(-1px);box-shadow:0 6px 22px rgba(255,215,0,.12)}
-    .btn-primary{background:linear-gradient(90deg,#9e7b00,#caa300);border-color:#caa300;color:#111;font-weight:700}
-    .btn-ghost{background:#121212}
-    .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:#151515;border:1px solid #2a2a2a;color:#cfcfcf;font-size:.85rem;margin-bottom:16px}
-    footer{opacity:.6;margin-top:22px;font-size:.9rem}
-    code{background:#141414;border:1px solid #262626;padding:3px 6px;border-radius:6px}
+    body {
+      background: #eaeaea;
+      color: #eeeeee;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Poppins, sans-serif;
+      min-height: 100vh;
+      margin: 0;
+      display: grid;
+      place-items: center;
+    }
+    .card {
+      width: min(90%, 940px);
+      background: linear-gradient(180deg, #111, #0b0b0b);
+      border: 1px solid #222;
+      border-radius: 18px;
+      padding: 36px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+    }
+    h1 {
+      font-size: 34px;
+      margin: 8px 0 10px 0;
+    }
+    p.lead {
+      opacity: 0.7;
+      margin: 0 0 24px 0;
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-top: 18px;
+    }
+    a.btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 12px 18px;
+      border-radius: 12px;
+      border: 1px solid #333;
+      background: #161616;
+      color: #f5f5f5;
+      text-decoration: none;
+      cursor: pointer;
+      transition: 0.25s transform, 0.25s box-shadow;
+    }
+    a.btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 2px 12px rgba(255, 215, 0, 0.12);
+    }
+    .btn-primary {
+      background: linear-gradient(90deg, #d69e00, #ffaa00);
+      border: 1px solid #222;
+      color: #fff;
+      font-weight: 700;
+    }
+    .btn-ghost {
+      background: #111;
+      border: 1px solid #444;
+      color: #aaa;
+    }
+    .hint {
+      opacity: 0.75;
+      font-size: 0.85rem;
+      margin-top: 10px;
+    }
+    footer {
+      margin-top: 40px;
+      text-align: center;
+      color: #666;
+      font-size: 0.85rem;
+    }
   </style>
 </head>
+
 <body>
   <main class="card">
     <span class="pill">Versión LITE con progreso, exámenes y sonidos</span>
     <h1>Campus CFC LITE</h1>
-    <p class="lead">
-      20 módulos (4 capítulos + examen por módulo), progreso, historial y refuerzos motivacionales.
-    </p>
+    <p class="lead">20 módulos (4 capítulos + examen por módulo), progreso, historial y refuerzos motivacionales.</p>
 
     <div class="actions">
-      <!-- ✅ rutas relativas funcionales en GitHub y Cloudflare -->
-      <a class="btn btn-primary" href="modules/index.html">🚀 Entrar a los módulos</a>
-      <a class="btn btn-ghost" href="admin.html">📊 Historial local de exámenes</a>
-      <a class="btn btn-ghost" href="https://github.com/cfc-droid/campus-cfc-lite-v36" target="_blank" rel="noopener">📦 Repositorio</a>
+      <a class="btn btn-primary" href="/modules/index.html">📘 Entrar a los módulos</a>
+      <a class="btn btn-ghost" href="/admin.html">📊 Historial local de exámenes</a>
+      <a class="btn btn-ghost" href="https://github.com/cfc-droid/campus-cfc-lite-v36" target="_blank" rel="noopener">📁 Repositorio</a>
     </div>
 
-    <p class="hint">
-      Sugerencia: guardá este enlace directo a los módulos:
-      <code>modules/index.html</code>
-    </p>
-
-    <footer>© 2025 Campus CFC Trading</footer>
+    <p class="hint">Sugerencia: guardá este enlace directo a los módulos: <code>/modules/index.html</code></p>
   </main>
+
+  <footer>© 2025 Campus CFC Trading</footer>
 </body>
 </html>
