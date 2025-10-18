@@ -1,55 +1,117 @@
-
 /**
- * Exam engine CFC LITE v37
+ * Exam Engine CFC LITE v37 — con sonidos, historial y progreso
  */
-function gradeExam(modNumber) {
-  const form = document.getElementById(`exam${modNumber}`);
-  if (!form) { alert("No se encontró el formulario del examen."); return; }
-  const keyRaw = localStorage.getItem(`mod${modNumber}_answerKey`);
-  const answerKey = keyRaw ? JSON.parse(keyRaw) : { q1: 'a', q2: 'b', q3: 'c', q4: 'd' };
-  let score = 0, total = 4;
-  [...form.querySelectorAll('label')].forEach(l => l.classList.remove('cfc-correct','cfc-wrong'));
-  for (let i = 1; i <= total; i++) {
-    const name = `q${i}`;
-    const marked = form.querySelector(`input[name="${name}"]:checked`);
-    if (marked) {
-      const lbl = marked.closest('label');
-      if (marked.value === answerKey[name]) { score++; if (lbl) lbl.classList.add('cfc-correct'); }
-      else { if (lbl) lbl.classList.add('cfc-wrong'); }
+
+(function examCFC() {
+
+  // Obtener número de módulo desde la URL
+  function getModuleNumber() {
+    const parts = window.location.pathname.split('/').filter(Boolean);
+    const idx = parts.indexOf('modules');
+    if (idx >= 0 && parts[idx + 1]) return parseInt(parts[idx + 1], 10) || 1;
+    return 1;
+  }
+
+  // --- NUEVO BLOQUE: reproducir sonidos (WAV) ---
+  function playSound(ok) {
+    try {
+      const src = ok ? '/frontend/sounds/success.wav' : '/frontend/sounds/error.wav';
+      const audio = new Audio(src);
+      audio.volume = 0.4;
+      audio.play().catch(() => {});
+    } catch (e) {}
+  }
+
+  // Guardar historial local de exámenes
+  function saveHistory(mod, score) {
+    const attKey = `mod${mod}_attempts`;
+    const attempts = (parseInt(localStorage.getItem(attKey) || '0', 10) + 1);
+    localStorage.setItem(attKey, String(attempts));
+
+    localStorage.setItem(`mod${mod}_score`, String(score));
+    const ts = new Date().toISOString();
+    localStorage.setItem(`mod${mod}_ts`, ts);
+
+    let hist = [];
+    try {
+      const raw = localStorage.getItem('cfc_history');
+      if (raw) hist = JSON.parse(raw);
+    } catch (e) {}
+
+    const row = { mod, score, attempts, ts };
+    const i = hist.findIndex(h => h.mod === mod);
+    if (i >= 0) hist[i] = row; else hist.push(row);
+    localStorage.setItem('cfc_history', JSON.stringify(hist));
+  }
+
+  // Desbloquear siguiente módulo si aprueba
+  function maybeUnlockNext(mod, score) {
+    if (score >= 3) {
+      const next = mod + 1;
+      if (next <= 20) {
+        localStorage.setItem(`mod${next}_unlocked`, 'true');
+      }
     }
   }
-  const attemptsKey = `mod${modNumber}_attempts`;
-  const scoreKey    = `mod${modNumber}_score`;
-  const historyKey  = `mod${modNumber}_history`;
-  const attempts = (parseInt(localStorage.getItem(attemptsKey) || '0', 10) + 1);
-  localStorage.setItem(attemptsKey, String(attempts));
-  localStorage.setItem(scoreKey, String(score));
-  const now = new Date().toISOString();
-  const hist = JSON.parse(localStorage.getItem(historyKey) || '[]');
-  hist.push({ ts: now, score, attempts });
-  localStorage.setItem(historyKey, JSON.stringify(hist));
-  const msg = form.querySelector('.cfc-exam-msg');
-  if (msg) msg.innerText = `Resultado: ${score}/4. Intentos: ${attempts}.`;
-  if (score >= 3) {
-    const next = modNumber + 1;
-    localStorage.setItem(`mod${next}_unlocked`, 'true');
-    updateGlobalProgress();
-    try { showMotivation(); } catch(e) {}
-    alert("✅ Aprobaste este módulo. Se desbloqueó el siguiente.");
-  } else {
-    alert("❌ Obtuviste menos de 3 respuestas correctas. Repetí el examen.");
+
+  // Recalcular progreso global
+  function recalcProgress() {
+    let passed = 0;
+    for (let m = 1; m <= 20; m++) {
+      const sc = parseInt(localStorage.getItem(`mod${m}_score`) || '0', 10);
+      if (sc >= 3) passed++;
+    }
+    const pct = Math.round((passed / 20) * 100);
+    localStorage.setItem('cfc_progress_pct', String(pct));
+
+    const bar = document.getElementById('cfc-progress-bar');
+    const txt = document.getElementById('cfc-progress-text');
+    if (bar) bar.style.width = pct + '%';
+    if (txt) txt.innerText = pct + '% completado';
   }
-}
-function updateGlobalProgress() {
-  let passed = 0;
-  for (let m = 1; m <= 20; m++) {
-    const sc = parseInt(localStorage.getItem(`mod${m}_score`) || '0', 10);
-    if (sc >= 3) passed++;
-  }
-  const pct = Math.round((passed / 20) * 100);
-  localStorage.setItem('cfc_progress_pct', String(pct));
-  const bar = document.getElementById('cfc-progress-bar');
-  const txt = document.getElementById('cfc-progress-text');
-  if (bar)  bar.style.width = pct + '%';
-  if (txt)  txt.innerText  = pct + '% completado';
-}
+
+  // Calificar examen
+  window.gradeExam = function gradeExam() {
+    const form = document.getElementById('exam1');
+    if (!form) return;
+
+    const answers = {
+      q1: form.querySelector('input[name="q1"]:checked')?.value,
+      q2: form.querySelector('input[name="q2"]:checked')?.value,
+      q3: form.querySelector('input[name="q3"]:checked')?.value,
+      q4: form.querySelector('input[name="q4"]:checked')?.value,
+    };
+    const key = { q1: 'b', q2: 'b', q3: 'b', q4: 'b' };
+
+    // Colores visuales de correctas/incorrectas
+    ['q1', 'q2', 'q3', 'q4'].forEach(q => {
+      const f = form.querySelector(`[name="${q}"]`)?.closest('fieldset');
+      if (!f) return;
+      const chosen = answers[q];
+      const ok = chosen === key[q];
+      f.style.border = ok ? '1px solid #34d399' : '1px solid #ef4444';
+      f.style.background = ok ? '#052d24' : '#2a0d0d';
+    });
+
+    // Calcular puntaje
+    let score = 0;
+    Object.keys(key).forEach(q => { if (answers[q] === key[q]) score++; });
+
+    const mod = getModuleNumber();
+    saveHistory(mod, score);
+    maybeUnlockNext(mod, score);
+    recalcProgress();
+
+    const msg = document.querySelector('.cfc-exam-msg');
+    if (score >= 3) {
+      if (msg) msg.textContent = '✅ ¡Aprobaste este módulo! Se desbloqueó el siguiente.';
+      playSound(true);
+    } else {
+      if (msg) msg.textContent = '❌ Te faltó. Repetí el examen hasta lograr al menos 3/4.';
+      playSound(false);
+    }
+
+    return false;
+  };
+
+})();
