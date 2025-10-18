@@ -1,6 +1,7 @@
-// ================================
-// WELCOME.JS — Banner de bienvenida dinámico (Campus CFC LITE V1.5)
-// ================================
+// ==============================================
+// WELCOME.JS — Banner de bienvenida dinámico
+// Campus CFC LITE v1.5
+// ==============================================
 
 const usuario = localStorage.getItem('nombreUsuario') || 'Trader';
 const hora = new Date().getHours();
