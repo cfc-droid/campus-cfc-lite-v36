@@ -3,61 +3,57 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Campus CFC LITE — Inicio</title>
 
-  <!-- ====== SEO LOCAL DINÁMICO ====== -->
-  <meta name="description" content="Campus CFC Trading LITE – Formación psicológica y técnica del trader moderno 🔥" />
-  <meta name="keywords" content="trading, psicología del trader, forex, campus CFC, formación financiera, disciplinar la mente" />
-  <meta name="author" content="Campus CFC Trading" />
-  <meta name="theme-color" content="#0a0a0a" />
+  <!-- SEO básico -->
+  <meta name="description" content="Campus CFC Trading — Formación psicológica y técnica del trader." />
+  <meta name="keywords" content="trading, psicología del trader, forex, campus CFC, formación financiera" />
 
-  <title>Campus CFC Trading LITE</title>
-
-  <!-- ====== PWA MANIFEST + ICONOS ====== -->
+  <!-- Manifest y favicon (estos sí están en tu deploy) -->
   <link rel="manifest" href="/manifest.json" />
-  <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png" />
-  <link rel="apple-touch-icon" href="/icons/icon-512.png" />
+  <link rel="icon" href="/favicon.ico" />
 
-  <!-- ====== PRECARGA DE FUENTES ====== -->
-  <link rel="preload" href="fonts/Poppins-Regular.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="fonts/Poppins-Bold.woff2" as="font" type="font/woff2" crossorigin />
-
-  <!-- ====== ESTILOS GLOBALES ====== -->
+  <!-- Estilos existentes en tu proyecto (sí están en /frontend/css/) -->
   <link rel="stylesheet" href="css/variables.css" />
-  <link rel="stylesheet" href="css/global.css" />
   <link rel="stylesheet" href="css/premium.min.css" />
   <link rel="stylesheet" href="css/loader.css" />
+  <link rel="stylesheet" href="css/exam-extra.css" />
+  <link rel="stylesheet" href="css/glass.css" />
 
-  <!-- ====== SCRIPT SEO DINÁMICO POR MÓDULO ====== -->
-  <script defer>
-    document.addEventListener('DOMContentLoaded', () => {
-      const ruta = window.location.pathname;
-      const metaDesc = document.querySelector('meta[name="description"]');
-      const metaKeys = document.querySelector('meta[name="keywords"]');
-
-      // Diccionario de meta datos dinámicos por módulo
-      const seo = {
-        '/index.html': {
-          desc: 'Campus CFC Trading – Formación psicológica y técnica del trader moderno.',
-          keys: 'trading, psicología del trader, forex, campus CFC, formación financiera'
-        },
-        '/modules/1/index.html': {
-          desc: 'Módulo 1 – Introducción al Trading Psicológico 📘',
-          keys: 'módulo 1, psicología trading, gestión emocional, trader disciplinado'
-        },
-        '/modules/2/index.html': {
-          desc: 'Módulo 2 – Neurociencia y Autocontrol del Trader 🧠',
-          keys: 'neurociencia, autocontrol, trading, estrategias mentales'
-        },
-        '/modules/3/index.html': {
-          desc: 'Módulo 3 – Gestión del Estrés y del Miedo Operativo ⚖️',
-          keys: 'estrés trading, miedo operativo, gestión emocional'
-        }
-      };
-
-      if (seo[ruta]) {
-        metaDesc.setAttribute('content', seo[ruta].desc);
-        metaKeys.setAttribute('content', seo[ruta].keys);
-      }
-    });
-  </script>
+  <style>
+    /* Ajustes mínimos para la portada */
+    :root{ --gold:#f4d447; }
+    body{ margin:0; background:#0b0b0b; color:#eee; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; }
+    .hero{ min-height:100dvh; display:grid; place-items:center; padding:40px 16px; }
+    .card{ max-width:920px; width:100%; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:18px; padding:32px; box-shadow:0 8px 30px rgba(0,0,0,.35); }
+    h1{ margin:0 0 8px; font-weight:800; letter-spacing:.2px; }
+    p{ margin:0 0 18px; color:#cfcfcf; }
+    .btns{ display:flex; gap:12px; flex-wrap:wrap; margin-top:14px; }
+    .btn{ padding:12px 18px; border-radius:12px; border:1px solid rgba(255,255,255,0.12); background:linear-gradient(180deg,#1e1e1e,#121212); color:#fff; cursor:pointer; font-weight:700; text-decoration:none; }
+    .btn.primary{ border-color:#6b5d14; background:linear-gradient(180deg, #3c3209, #1e1a04); color:#ffec8a; }
+    .hint{ margin-top:18px; font-size:.95rem; color:#b9b9b9; }
+    .hint code{ background:#1a1a1a; padding:2px 6px; border-radius:6px; border:1px solid #2a2a2a; }
+    footer{ text-align:center; padding:18px; color:#aaa; font-size:.9rem; }
+  </style>
 </head>
+<body>
+
+  <main class="hero">
+    <section class="card glass">
+      <h1>Campus CFC LITE</h1>
+      <p>Versión LITE con 20 módulos (4 capítulos + examen por módulo), progreso, historial y refuerzos motivacionales.</p>
+
+      <div class="btns">
+        <a class="btn primary" href="/frontend/modules/index.html">📚 Entrar a los módulos</a>
+        <a class="btn" href="/frontend/admin.html">📈 Historial local de exámenes</a>
+        <a class="btn" href="https://github.com/cfc-droid/campus-cfc-lite-v36" target="_blank" rel="noopener">🗂 Repositorio</a>
+      </div>
+
+      <p class="hint">Sugerencia: guardá este enlace directo a los módulos: <code>/frontend/modules/index.html</code></p>
+    </section>
+  </main>
+
+  <footer>© 2025 Campus CFC Trading — Todos los derechos reservados</footer>
+
+</body>
+</html>
