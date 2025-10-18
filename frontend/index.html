@@ -3,89 +3,61 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Campus CFC Trading — Formación psicológica y técnica del trader moderno" />
-  <meta name="keywords" content="trading, psicología, forex, campus CFC, formación" />
+
+  <!-- ====== SEO LOCAL DINÁMICO ====== -->
+  <meta name="description" content="Campus CFC Trading LITE – Formación psicológica y técnica del trader moderno 🔥" />
+  <meta name="keywords" content="trading, psicología del trader, forex, campus CFC, formación financiera, disciplinar la mente" />
+  <meta name="author" content="Campus CFC Trading" />
+  <meta name="theme-color" content="#0a0a0a" />
+
   <title>Campus CFC Trading LITE</title>
 
-  <!-- ============================== -->
-  <!-- PRECARGA DE FUENTES -->
-  <!-- ============================== -->
+  <!-- ====== PWA MANIFEST + ICONOS ====== -->
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png" />
+  <link rel="apple-touch-icon" href="/icons/icon-512.png" />
+
+  <!-- ====== PRECARGA DE FUENTES ====== -->
   <link rel="preload" href="fonts/Poppins-Regular.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="fonts/Poppins-Bold.woff2" as="font" type="font/woff2" crossorigin />
 
-  <!-- ============================== -->
-  <!-- ESTILOS GLOBALES -->
-  <!-- ============================== -->
+  <!-- ====== ESTILOS GLOBALES ====== -->
   <link rel="stylesheet" href="css/variables.css" />
   <link rel="stylesheet" href="css/global.css" />
   <link rel="stylesheet" href="css/premium.min.css" />
   <link rel="stylesheet" href="css/loader.css" />
+
+  <!-- ====== SCRIPT SEO DINÁMICO POR MÓDULO ====== -->
+  <script defer>
+    document.addEventListener('DOMContentLoaded', () => {
+      const ruta = window.location.pathname;
+      const metaDesc = document.querySelector('meta[name="description"]');
+      const metaKeys = document.querySelector('meta[name="keywords"]');
+
+      // Diccionario de meta datos dinámicos por módulo
+      const seo = {
+        '/index.html': {
+          desc: 'Campus CFC Trading – Formación psicológica y técnica del trader moderno.',
+          keys: 'trading, psicología del trader, forex, campus CFC, formación financiera'
+        },
+        '/modules/1/index.html': {
+          desc: 'Módulo 1 – Introducción al Trading Psicológico 📘',
+          keys: 'módulo 1, psicología trading, gestión emocional, trader disciplinado'
+        },
+        '/modules/2/index.html': {
+          desc: 'Módulo 2 – Neurociencia y Autocontrol del Trader 🧠',
+          keys: 'neurociencia, autocontrol, trading, estrategias mentales'
+        },
+        '/modules/3/index.html': {
+          desc: 'Módulo 3 – Gestión del Estrés y del Miedo Operativo ⚖️',
+          keys: 'estrés trading, miedo operativo, gestión emocional'
+        }
+      };
+
+      if (seo[ruta]) {
+        metaDesc.setAttribute('content', seo[ruta].desc);
+        metaKeys.setAttribute('content', seo[ruta].keys);
+      }
+    });
+  </script>
 </head>
-
-<body>
-  <!-- ============================== -->
-  <!-- LOADER INTERACTIVO -->
-  <!-- ============================== -->
-  <div id="loader">
-    <div class="spinner"></div>
-    <p id="loader-frase">Cargando motivación...</p>
-  </div>
-
-  <!-- ============================== -->
-  <!-- HEADER -->
-  <!-- ============================== -->
-  <header class="navbar">
-    <div class="logo">Campus CFC Trading</div>
-    <nav>
-      <ul>
-        <li><a href="#inicio"><b>Inicio</b></a></li>
-        <li><a href="#modulos"><b>Módulos</b></a></li>
-        <li><a href="#contacto"><b>Contacto</b></a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <!-- ============================== -->
-  <!-- BANNER DE BIENVENIDA DINÁMICO -->
-  <!-- ============================== -->
-  <div id="banner-saludo"></div>
-
-  <!-- ============================== -->
-  <!-- HERO PRINCIPAL -->
-  <!-- ============================== -->
-  <section id="inicio" class="hero">
-    <h1>Bienvenido al Campus CFC Trading</h1>
-    <p>Formación psicológica y técnica del trader moderno</p>
-    <div class="botones-hero">
-      <a href="modules/1/index.html" class="btn-principal">Comenzar Módulos</a>
-      <a href="#info" class="btn-secundario">Ver Información</a>
-    </div>
-  </section>
-
-  <!-- ============================== -->
-  <!-- SECCIÓN MÓDULOS -->
-  <!-- ============================== -->
-  <section id="modulos" class="modules">
-    <h2>Módulos Disponibles</h2>
-    <div class="grid-modulos">
-      <a href="modules/1/index.html" class="modulo">Módulo 1</a>
-      <a href="modules/2/index.html" class="modulo">Módulo 2</a>
-      <a href="modules/3/index.html" class="modulo">Módulo 3</a>
-    </div>
-  </section>
-
-  <!-- ============================== -->
-  <!-- FOOTER -->
-  <!-- ============================== -->
-  <footer>
-    <p>© 2025 Campus CFC Trading. Todos los derechos reservados.</p>
-  </footer>
-
-  <!-- ============================== -->
-  <!-- SCRIPTS -->
-  <!-- ============================== -->
-  <script src="scripts/loader.js" defer></script>
-  <script src="scripts/cache.js" defer></script>
-  <script src="scripts/welcome.js" defer></script>
-</body>
-</html>
