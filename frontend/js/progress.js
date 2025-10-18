@@ -1,21 +1,23 @@
-// ============================
+// ===================================
 // PROGRESS BAR CFC TRADING
-// ============================
+// ===================================
 
 document.addEventListener("DOMContentLoaded", () => {
   const progressBar = document.getElementById("progress");
-  const progressText = document.createElement("span");
+  const progressContainer = document.getElementById("progress-container");
 
-  // Añadir texto dinámico dentro del contenedor
+  // Crear texto dinámico
+  const progressText = document.createElement("span");
   progressText.id = "progress-text";
   progressText.style.position = "absolute";
   progressText.style.top = "50%";
   progressText.style.left = "50%";
   progressText.style.transform = "translate(-50%, -50%)";
-  progressText.style.color = "#d4af37";
+  progressText.style.color = "#f4d47f";
   progressText.style.fontSize = "0.9rem";
-  progressText.style.fontFamily = "Poppins, sans-serif";
-  document.getElementById("progress-container").appendChild(progressText);
+  progressText.style.fontFamily = "'Poppins', sans-serif";
+  progressText.style.fontWeight = "500";
+  progressContainer.appendChild(progressText);
 
   let progress = 0;
   const interval = setInterval(() => {
