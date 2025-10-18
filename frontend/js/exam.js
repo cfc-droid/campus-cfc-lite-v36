@@ -15,7 +15,7 @@
   // --- NUEVO BLOQUE: reproducir sonidos (WAV) ---
   function playSound(ok) {
     try {
-      const src = ok ? '/frontend/sounds/success.wav' : '/frontend/sounds/error.wav';
+      const src = ok ? 'sounds/success.wav' : 'sounds/error.wav';
       const audio = new Audio(src);
       audio.volume = 0.4;
       audio.play().catch(() => {});
