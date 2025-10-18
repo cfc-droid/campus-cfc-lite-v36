@@ -25,6 +25,7 @@ body {
   opacity: 0;
   animation: fadeIn 1s ease-in forwards, fadeOut 2s ease-out 2.5s forwards;
   z-index: 9999;
+  transition: opacity 0.8s ease-in-out;
 }
 
 /* Logo */
@@ -38,6 +39,25 @@ body {
   font-size: 1rem;
   margin-top: 20px;
   opacity: 0.8;
+}
+
+/* Contenedor barra de progreso */
+#progress-container {
+  position: relative;
+  width: 200px;
+  height: 10px;
+  background: #222;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+/* Barra dorada */
+#progress {
+  height: 100%;
+  width: 0;
+  background: var(--gold);
+  transition: width 0.3s ease;
 }
 
 /* Animaciones */
